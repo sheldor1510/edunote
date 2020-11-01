@@ -15,7 +15,7 @@
         <a class="nav-item" href="/profile" style="margin-right: 100px;">profile</a>
     </nav>
     <div class="notes">
-        <h1>Search results for <%- searchQuery %></h1>
+        <h1>Search results for <span style="color: #c3073f"><%- searchQuery %></span> (<%- searchResults.length %>)</h1>
         <div class="note-grid">
             <div class="inline">
                 <% if(searchResults.length == 0) { %> 
