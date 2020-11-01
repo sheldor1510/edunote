@@ -1,0 +1,144 @@
+body {
+    font-family: 'Inter';
+    background-color: #1A1A1D;
+}
+
+.navbar {
+    height: 50px;
+    font-family: 'Inter';
+    font-size: 1.3rem;
+    font-weight: 500;
+    padding-top: 40px;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    float: right;
+}
+
+.navbar h1 {
+    font-weight: 800;
+    font-size: 2rem;
+    color: #c3073f;
+    float: left;
+}
+
+.logo {
+    height: 80px;
+    width: 120px;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: white;
+    margin-left: 40px;
+}
+
+.nav-item:hover {
+    bottom: 3px;
+    border-color: #c3073f;
+    border-width: 0 0 2px;
+    border-style: solid;
+}
+
+#active {
+    bottom: 3px;
+    border-color: #c3073f;
+    border-width: 0 0 2px;
+    border-style: solid;
+}
+
+.notes {
+    padding-top: 130px;
+    padding-left: 300px;
+}
+
+.notes h1 {
+    color: white;
+}
+
+.notes input {
+    height: 50px;
+    width: 400px;
+    background-color: #1A1A1D;
+    color: white;
+    border: none;
+    border-style: solid;
+    border-color: white;
+    border-radius: 5px;
+    border-width: 0.5px;
+    padding-left: 20px;
+    font-family: 'Inter';
+    font-size: 1rem;
+}
+
+.notes input:focus {
+    outline: none;
+}
+
+.inline {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+
+i {
+    margin-left: 10px;
+    font-size: 3.3rem;
+    color: #c3073f;
+}
+
+i:hover {
+    cursor: pointer;
+}
+
+button {
+    border: none;
+    text-decoration: none;
+    background-color: #1A1A1D;
+}
+
+button:focus {
+    outline: none;
+}
+
+.note-grid {
+    margin-top: 50px;
+    width: 1000px;
+}
+
+.note-card {
+    width: 210px;
+    border-style: solid;
+    border-color: #c3073f;
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: white;
+    margin-right: 50px;
+    margin-bottom: 30px;
+}
+
+#delete-note {
+    display: none;
+    float: right;
+    font-size: 1rem; 
+    color: white; 
+    margin-top: 10px;
+    margin-right: 10px; 
+    margin-left: 10px
+}
+
+.note-card:hover #delete-note {
+    display: block;
+}
+
+.note-card button {
+    float: right;
+}
+
+h3 {
+    color: #c3073f;
+}
+

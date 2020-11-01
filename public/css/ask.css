@@ -1,0 +1,115 @@
+body {
+    font-family: 'Inter';
+    background-color: #1A1A1D;
+}
+
+.navbar {
+    height: 50px;
+    font-family: 'Inter';
+    font-size: 1.3rem;
+    font-weight: 500;
+    padding-top: 40px;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    float: right;
+}
+
+h1 {
+    font-weight: 800;
+    font-size: 2rem;
+    color: #c3073f;
+    float: left;
+}
+
+.logo {
+    height: 80px;
+    width: 120px;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: white;
+    margin-left: 40px;
+}
+
+.nav-item:hover {
+    bottom: 3px;
+    border-color: #c3073f;
+    border-width: 0 0 2px;
+    border-style: solid;
+}
+
+#active {
+    bottom: 3px;
+    border-color: #c3073f;
+    border-width: 0 0 2px;
+    border-style: solid;
+}
+
+.search-area {
+    padding-top: 150px;
+    padding-left: 40%;
+}
+
+.search-area h1 {
+    text-align: center;
+    font-weight: 800;
+    font-size: 5rem;
+    color: white;
+}
+
+h3 {
+    text-align: center;
+    font-weight: 600;
+    font-size: 2rem;
+    color: white;
+    margin-top: -6.5rem;
+}
+
+button {
+    height: 40px;
+    width: 100px;
+    text-align: center;
+    background-color: #1A1A1D;
+    border: solid;
+    border-color: #c3073f;
+    border-radius: 50px;
+    border-width: 0.7px;
+    color: white;
+    font-family: 'Inter';
+    font-size: 1rem;
+    letter-spacing: 1.5;
+    margin-top: 0rem;
+    margin-left: 30px;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:hover {
+    background-color: #c3073f;
+    cursor: pointer;
+}
+
+input {
+    height: 50px;
+    width: 400px;
+    background-color: #1A1A1D;
+    color: white;
+    border: none;
+    border-style: solid;
+    border-color: white;
+    border-radius: 50px;
+    border-width: 0.5px;
+    padding-left: 30px;
+    font-family: 'Inter';
+    font-size: 1rem;
+    margin-top: 175px;
+    margin-left: -260px;
+}
+
+input:focus {
+    outline: none;
+}

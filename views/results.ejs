@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preload" href="https://assets.vercel.com/raw/upload/v1587415301/fonts/2/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/notes.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <title>edunote</title>
+</head>
+<body>
+    <nav class="navbar">
+        <h1>edunote</h1>
+        <a class="nav-item" href="/ask" style="margin-left: 800px;">ask</a>
+        <a class="nav-item" href="/notes" id="active">notes</a>
+        <a class="nav-item" href="/recordings">recordings</a>
+        <a class="nav-item" href="/profile" style="margin-right: 100px;">profile</a>
+    </nav>
+    <div class="notes">
+        <h1>Search results for <%- searchQuery %></h1>
+        <div class="note-grid">
+            <div class="inline">
+                <% if(searchResults.length == 0) { %> 
+                    <div class="note-card">
+                        <p>no search results</p>
+                    </div>
+                <% } %>
+                <% for (let i = 0; i < searchResults.length; i++) { %> 
+                    <div class="note-card" style="width: 500px;">
+                        <a target="blank" href="<%- searchResults[i].url %>">
+                            <button>
+                                <i id="delete-note" class="fa fa-link" style="font-size: 1.5rem;"></i>
+                            </button>
+                        </a>
+                        <p><%- searchResults[i].text %></p>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

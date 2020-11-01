@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preload" href="https://assets.vercel.com/raw/upload/v1587415301/fonts/2/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/login.css" />
+    <title>edunote</title>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <%- include('./partials/messages') %>
+        <form method="POST" action="/login">
+            <input placeholder="username" name="username"><br><br>
+            <input placeholder="password" type="password" name="password"><br><br>
+            <button type="submit">Login</button>
+        </form>
+        <h4>Don't have an account? <span><a href="/register" style="color: #c3073f;text-decoration: none">Register</a></span></h4>
+    </div>
+</body>
+</html>
