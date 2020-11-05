@@ -38,6 +38,61 @@ router.get('/notes', ensureAuthenticated, (req, res) => {
     }).sort('-date')
 })
 
+router.get('/note/:id', ensureAuthenticated, (req, res) => {
+    const { id } = req.params
+    console.log(id)
+    const axios = require("axios")
+    const cheerio = require("cheerio")
+
+
+    const textsToAvoid = ['Google', 'Images', 'News', 'Videos', 'Maps', 'Shopping', 'Books', 
+                        'Search tools', 'Past hour', 'Past 24 hours', 'Past week', 'Past month', 
+                        'Past year', 'Next >', 'Sign in', 'Settings', 'Privacy', 'Terms']
+
+    const searchResults = []
+    Note.findById(id, function(err, note) {
+        axios.get(`https://www.google.com/search?q=${note.content}&tbm=vid`)
+        .then((response) => {
+            const $ = cheerio.load(response.data)
+            links = $('a'); //jquery get all hyperlinks
+            $(links).each(function(i, link){
+                let linkText =  $(link).text()
+                let linkUrl =  $(link).attr('href')
+                if(!textsToAvoid.includes(linkText)) {
+                if(linkUrl.startsWith('/url')) {
+                    if(linkUrl.includes('www.youtube.com')) {
+                        const updatedUrl = 'https://google.com' + linkUrl
+                        if(linkText.includes('›')) {
+                            linkText = linkText.split('›')[0]
+                        }
+                        const searchResult = {
+                            text: linkText,
+                            url: updatedUrl
+                        }
+                        searchResults.push(searchResult)
+                    }
+                }
+                }
+            })
+            const updatedSearchResults = []
+            for(let i=0; i < searchResults.length; i++) {
+                if(searchResults[i].text == '') {}
+                else {
+                    updatedSearchResults.push(searchResults[i])
+                }
+            }
+            res.render('results', {
+                pageTitle: 'Recommended videos',
+                searchQuery: note.content,
+                searchResults: updatedSearchResults
+            })
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    })
+})
+
 router.post('/delete-note', ensureAuthenticated, (req,res) => {
     const { noteId } = req.body
     Note.findByIdAndDelete(noteId, err => {
@@ -102,6 +157,7 @@ router.post('/search', ensureAuthenticated, (req, res) => {
         }
         console.log(updatedSearchResults)
         res.render('results', {
+            pageTitle: 'Search results',
             searchQuery: searchQuery,
             searchResults: updatedSearchResults
         })

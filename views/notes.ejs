@@ -30,15 +30,17 @@
                     </div>
                 <% } %>
                 <% for (let i = 0; i < notes.length; i++) { %> 
-                    <div class="note-card">
-                        <form method="POST" action="/delete-note">
-                            <input type="hidden" value="<%- notes[i]._id %>" name="noteId">
-                            <button type="submit">
-                                <i id="delete-note" class="fa fa-trash-alt"></i>
-                            </button>
-                        </form>
-                        <p><%- notes[i].content %></p>
-                    </div>
+                        <div class="note-card">
+                            <form method="POST" action="/delete-note">
+                                <input type="hidden" value="<%- notes[i]._id %>" name="noteId">
+                                <button type="submit">
+                                    <i id="delete-note" class="fa fa-trash-alt"></i>
+                                </button>
+                            </form>
+                            <a href="/note/<%- notes[i]._id %>" style="text-decoration: none;color: white;">
+                            <p><%- notes[i].content %></p>
+                            </a>
+                        </div>
                 <% } %>
             </div>
         </div>
